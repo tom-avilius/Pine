@@ -1,4 +1,30 @@
 
+// variables and constants
+const monthInWords = {
+    0: 'January',
+    1: 'February',
+    2: 'March',
+    3: 'April',
+    4: 'May',
+    5: 'June',
+    6: 'July',
+    7: 'August',
+    8: 'September',
+    9: 'October',
+    10: 'November',
+    11: 'December',
+}
+
+const dayInWords = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday'
+}
+
 // getting html DOM elements
 
 // day, date time section => today
@@ -24,11 +50,11 @@ function startTime() {
     setTimeout(startTime, 1000);
 }
 
-// function to set time by changing the displaying it in desktop
+// function to set time by displaying it in desktop
 function setTime(date) {
 
     // setting hours
-    const hour = date.getHours()+'';
+    const hour = date.getHours()+':';
     if (hours.innerText != hour) {
 
         hours.innerText = hour+'';
@@ -42,7 +68,7 @@ function setTime(date) {
     }
 
     // setting day
-    const dayy = date.getDay()+'';
+    const dayy = dayInWords[date.getDay()]+'';
     if (day.innerText != dayy) {
 
         day.innerText = dayy+'';
@@ -52,7 +78,7 @@ function setTime(date) {
     const datte = date.getDate()+'';
     if (dateDom.innerText != datte) {
 
-        dateDom.innerText = datte+' '+date.getMonth()+'';
+        dateDom.innerText = datte+' '+monthInWords[date.getMonth()]+'';
     }
 }
 
