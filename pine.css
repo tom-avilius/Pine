@@ -1,0 +1,10 @@
+
+* {
+
+    user-select: none;
+}
+
+*:hover {
+
+    cursor: inherit;
+}
