@@ -4497,6 +4497,28 @@ function setTime(date) {
     }
 }
 
+// function to generate random integer
+function random() {
+
+    var rand = Math.random()*1000;
+    rand = Math.trunc(rand);
+
+    return rand;
+}
+
+// function to get random quote 
+function randomQuote() {
+
+    var rand = random();
+
+    while (rand > 732) {
+
+        rand = random();
+    }
+
+    return quotesList[rand];
+}
+
 // ----------------------------------------------
 
 
