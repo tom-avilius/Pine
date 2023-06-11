@@ -25,7 +25,7 @@ const dayInWords = {
     6: 'Saturday'
 }
 
-const quotes = [
+const quotesList = [
     {
       "quote": "Do, or do not. There is no try.",
       "movie": "Star Wars: Episode V - The Empire Strikes Back",
@@ -4429,6 +4429,12 @@ const minutes = document.getElementById('minutes');
 const day = document.getElementById('day');
 const dateDom = document.getElementById('date');
 
+// quote, movie, year => quotes section
+const quotesSection = document.getElementById('quotes');
+const quote = document.getElementById('quote');
+const movie = document.getElementById('movie');
+const year = document.getElementById('year');
+
 // -----------------------------------------------
 
 
@@ -4505,3 +4511,5 @@ startTime();
 // making elements draggable below
 // today section
 element.draggable(todaySection, 'today');
+// quotes section
+element.draggable(quotesSection, 'quotes');
