@@ -4519,6 +4519,16 @@ function randomQuote() {
     return quotesList[rand];
 }
 
+function formatQuote() {
+
+    const randQuote = randomQuote();
+
+    quote.innerText = randQuote.quote+'';
+    movie.innerText = '-'+randQuote.movie+'';
+    year.innerText = randQuote.year+'';
+
+    setTimeout(formatQuote, 2000000);
+}
 // ----------------------------------------------
 
 
@@ -4528,6 +4538,8 @@ function randomQuote() {
 // calling functions below
 // starting time
 startTime();
+// displaying quote
+formatQuote();
 
 
 // making elements draggable below
