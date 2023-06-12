@@ -16,6 +16,11 @@
     cursor: inherit;
 }
 
+#calender {
+
+    display: flex;
+}
+
 #day, #date {
 
     font-size: 1.8rem;
