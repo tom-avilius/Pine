@@ -4435,6 +4435,9 @@ const quote = document.getElementById('quote');
 const movie = document.getElementById('movie');
 const year = document.getElementById('year');
 
+// all calendar elements
+const calendarSection = document.getElementById('calendar');
+
 // -----------------------------------------------
 
 
@@ -4547,3 +4550,5 @@ formatQuote();
 element.draggable(todaySection, 'today');
 // quotes section
 element.draggable(quotesSection, 'quotes');
+// calendar section
+element.draggable(calendarSection, 'calender');

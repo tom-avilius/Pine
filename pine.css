@@ -16,9 +16,39 @@
     cursor: inherit;
 }
 
-#calender {
+#calendar {
 
     display: flex;
+}
+
+#calendar div {
+
+    padding: 20px;
+}
+
+#cl-day {
+
+    font-size: 2rem;
+}
+
+#cl-month {
+
+    font-size: 2rem;
+}
+
+#cl-week-info {
+
+    font-size: 1.2rem;
+}
+
+#cl-month-dates {
+
+    font-size: 1.2rem;
+}
+
+#cl-quote {
+
+    font-size: 1.4rem;
 }
 
 #day, #date {
@@ -34,6 +64,11 @@
 #today {
 
     font-family: 'Open Sans', sans-serif;
+}
+
+.todo-item {
+
+    font-size: 1.1rem;
 }
 
 #quotes {
