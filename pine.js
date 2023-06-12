@@ -4523,7 +4523,7 @@ function formatQuote() {
 
     const randQuote = randomQuote();
 
-    quote.innerText = randQuote.quote+'';
+    quote.innerText ='"'+randQuote.quote+'"';
     movie.innerText = '-'+randQuote.movie+'';
     year.innerText = randQuote.year+'';
 

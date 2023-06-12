@@ -30,3 +30,20 @@
 
     font-family: 'Open Sans', sans-serif;
 }
+
+#quotes {
+
+    font-family: 'Open Sans', sans-serif;
+    max-width: 40vw;
+}
+
+#quote {
+
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#movie, #year {
+
+    float: right;
+}
