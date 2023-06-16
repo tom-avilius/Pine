@@ -4441,6 +4441,8 @@ const calendarSection = document.getElementById('calendar');
 // all stat elements
 const cpuStat = document.getElementById('cpu-stat');
 const ramStat = document.getElementById('ram-stat');
+const ramStatValue = document.getElementById('ram-stat-value');
+const cpuStatValue = document.getElementById('cpu-stat-value');
 
 // all weather elements
 const weatherSection = document.getElementById('weather');
@@ -4538,6 +4540,7 @@ function randomQuote() {
     return quotesList[rand];
 }
 
+// function to format the random quote generated
 function formatQuote() {
 
     const randQuote = randomQuote();
@@ -4548,18 +4551,43 @@ function formatQuote() {
 
     setTimeout(formatQuote, 2000000);
 }
+
+// class to manage statistical info
+class stats {
+
+  constructor (ramStatValue, cpuStatValue) {
+
+    // the ram and cpu stat elements
+    this.ramStatValue = ramStatValue;
+    this.cpuStatValue = cpuStatValue;
+  }
+
+  // function to manage cpu statistics
+  cpuStatistics = () => {
+
+    os.cpu( (usage) => {
+
+      usage = usage*100;
+      usage = Math.trunc(usage);
+
+      if (cpuStatValue.innerText != usage+'%') {
+
+        cpuStatValue.innerText = usage+'%';
+      }
+    });
+
+    // calling cpuStatistics every second
+    setTimeout(this.cpuStatistics, 1000);
+  }
+}
 // ----------------------------------------------
 
 
 
 // Actual execution flow
 
-// calling functions below
-// starting time
-startTime();
-// displaying quote
-formatQuote();
-
+// creating objects of classes defined above
+const statistics = new stats(ramStatValue, cpuStatValue);
 
 // making elements draggable below
 // today section
@@ -4579,3 +4607,15 @@ element.draggable(explorerLauncher, 'explorer');
 element.draggable(navbarSection, 'navbar');
 // notes section
 element.draggable(notesSection, 'notes');
+
+
+// calling functions below
+
+// starting time
+startTime();
+
+// displaying quote
+formatQuote();
+
+// displaying cpu statistics
+statistics.cpuStatistics();
