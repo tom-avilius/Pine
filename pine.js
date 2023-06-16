@@ -4438,6 +4438,9 @@ const year = document.getElementById('year');
 // all calendar elements
 const calendarSection = document.getElementById('calendar');
 
+// all stat elements
+const statsSection = document.getElementById('stats');
+
 // -----------------------------------------------
 
 
@@ -4552,3 +4555,5 @@ element.draggable(todaySection, 'today');
 element.draggable(quotesSection, 'quotes');
 // calendar section
 element.draggable(calendarSection, 'calender');
+// stats section
+element.draggable(statsSection, 'stats');

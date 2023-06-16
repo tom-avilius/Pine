@@ -61,6 +61,12 @@
     font-size: 1.4rem;
 }
 
+#cpu-stat {
+
+    text-align: center;
+    font-family: 'Open Sans';
+}
+
 #day, #date {
 
     font-size: 1.8rem;
