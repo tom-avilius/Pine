@@ -77,6 +77,18 @@
     font-size: 4.0rem;
 }
 
+#navbar nav ul {
+
+    list-style-type: none;
+}
+
+nav ul li {
+
+    display: inline-block;
+    padding: 20px;
+    font-family: 'Open Sans';
+}
+
 #today {
 
     font-family: 'Open Sans', sans-serif;
