@@ -4579,6 +4579,18 @@ class stats {
     // calling cpuStatistics every second
     setTimeout(this.cpuStatistics, 1000);
   }
+
+  // function to manage ram statistics
+  ramStatistics = () => {
+
+    var memory = os.ram();
+    memory = Math.trunc(memory);
+    
+    if (ramStatValue.innerText != memory+'%') {
+
+      ramStatValue.innerText = memory+'%';
+    }
+  }
 }
 // ----------------------------------------------
 
@@ -4619,3 +4631,5 @@ formatQuote();
 
 // displaying cpu statistics
 statistics.cpuStatistics();
+// displaying ram statistics
+statistics.ramStatistics();
