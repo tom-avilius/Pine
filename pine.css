@@ -26,6 +26,11 @@
     padding: 20px;
 }
 
+#cl-calendar table {
+
+    text-align: center;
+}
+
 #cl-day {
 
     font-size: 2rem;
@@ -41,7 +46,12 @@
     font-size: 1.2rem;
 }
 
-#cl-month-dates {
+#cl-week-info th {
+
+    padding: 5px;
+}
+
+.cl-month-dates {
 
     font-size: 1.2rem;
 }
