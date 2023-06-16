@@ -4448,6 +4448,9 @@ const weatherSection = document.getElementById('weather');
 // all launcher elements 
 const explorerLauncher = document.getElementById('explorer');
 
+// all navbar elements
+const navbarSection = document.getElementById('navbar');
+
 // -----------------------------------------------
 
 
@@ -4569,3 +4572,5 @@ element.draggable(cpuStat, 'cpu-stat');
 element.draggable(weatherSection, 'weather');
 // launchers
 element.draggable(explorerLauncher, 'explorer');
+// navbar section
+element.draggable(navbarSection, 'navbar');
