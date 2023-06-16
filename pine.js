@@ -4451,6 +4451,9 @@ const explorerLauncher = document.getElementById('explorer');
 // all navbar elements
 const navbarSection = document.getElementById('navbar');
 
+// all notes elements
+const notesSection = document.getElementById('notes');
+
 // -----------------------------------------------
 
 
@@ -4574,3 +4577,5 @@ element.draggable(weatherSection, 'weather');
 element.draggable(explorerLauncher, 'explorer');
 // navbar section
 element.draggable(navbarSection, 'navbar');
+// notes section
+element.draggable(notesSection, 'notes');
