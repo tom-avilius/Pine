@@ -4575,9 +4575,6 @@ class stats {
         cpuStatValue.innerText = usage+'%';
       }
     });
-
-    // calling cpuStatistics every second
-    setTimeout(this.cpuStatistics, 1000);
   }
 
   // function to manage ram statistics
@@ -4585,12 +4582,20 @@ class stats {
 
     var memory = os.ram();
     memory = Math.trunc(memory);
-    
+
     if (ramStatValue.innerText != memory+'%') {
 
       ramStatValue.innerText = memory+'%';
     }
   }
+
+  // funtion to set timeout to enable statistics
+  enableStatistics = () => {
+
+    this.ramStatistics();
+    this.cpuStatistics();
+    setTimeout(this.enableStatistics, 1000);
+  } 
 }
 // ----------------------------------------------
 
@@ -4629,7 +4634,5 @@ startTime();
 // displaying quote
 formatQuote();
 
-// displaying cpu statistics
-statistics.cpuStatistics();
-// displaying ram statistics
-statistics.ramStatistics();
+// enabling cpu and ram statistics
+statistics.enableStatistics();
