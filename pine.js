@@ -4442,6 +4442,9 @@ const calendarSection = document.getElementById('calendar');
 const cpuStat = document.getElementById('cpu-stat');
 const ramStat = document.getElementById('ram-stat');
 
+// all weather elements
+const weatherSection = document.getElementById('weather');
+
 // -----------------------------------------------
 
 
@@ -4559,3 +4562,5 @@ element.draggable(calendarSection, 'calender');
 // stats section
 element.draggable(ramStat, 'ram-stat');
 element.draggable(cpuStat, 'cpu-stat');
+// weather section
+element.draggable(weatherSection, 'weather');
