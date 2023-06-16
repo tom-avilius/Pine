@@ -4445,6 +4445,9 @@ const ramStat = document.getElementById('ram-stat');
 // all weather elements
 const weatherSection = document.getElementById('weather');
 
+// all launcher elements 
+const explorerLauncher = document.getElementById('explorer');
+
 // -----------------------------------------------
 
 
@@ -4564,3 +4567,5 @@ element.draggable(ramStat, 'ram-stat');
 element.draggable(cpuStat, 'cpu-stat');
 // weather section
 element.draggable(weatherSection, 'weather');
+// launchers
+element.draggable(explorerLauncher, 'explorer');
