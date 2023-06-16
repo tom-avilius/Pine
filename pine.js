@@ -4439,7 +4439,8 @@ const year = document.getElementById('year');
 const calendarSection = document.getElementById('calendar');
 
 // all stat elements
-const statsSection = document.getElementById('stats');
+const cpuStat = document.getElementById('cpu-stat');
+const ramStat = document.getElementById('ram-stat');
 
 // -----------------------------------------------
 
@@ -4556,4 +4557,5 @@ element.draggable(quotesSection, 'quotes');
 // calendar section
 element.draggable(calendarSection, 'calender');
 // stats section
-element.draggable(statsSection, 'stats');
+element.draggable(ramStat, 'ram-stat');
+element.draggable(cpuStat, 'cpu-stat');

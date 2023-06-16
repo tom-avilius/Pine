@@ -61,7 +61,7 @@
     font-size: 1.4rem;
 }
 
-#cpu-stat {
+#cpu-stat, #ram-stat{
 
     text-align: center;
     font-family: 'Open Sans';
