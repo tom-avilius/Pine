@@ -4582,6 +4582,7 @@ class stats {
 
     var memory = os.ram();
     memory = Math.trunc(memory);
+    memory = 100-memory; //getting the memory used
 
     if (ramStatValue.innerText != memory+'%') {
 
