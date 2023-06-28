@@ -4669,6 +4669,24 @@ class PineNavbar {
       this.sections.statsSection.classList.add('hidden');
     })
   }
+
+  // notes button clicked
+  enableNotes = () => {
+
+    this.notes.addEventListener('click', () => {
+
+      // showing elements
+      this.sections.notesSection.classList.remove('hidden');
+      
+      // hiding elements
+      this.sections.calendarSection.classList.add('hidden')
+      this.sections.weatherSection.classList.add('hidden');
+      this.sections.quotesSection.classList.add('hidden');
+      this.sections.todaySection.classList.add('hidden');
+      this.sections.launcherSection.classList.add('hidden');
+      this.sections.statsSection.classList.add('hidden');
+    })
+  }
 }
 
 // ----------------------------------------------
@@ -4717,3 +4735,4 @@ statistics.enableStatistics();
 // enabling primary navbar functions
 pineNavbar.enableHome();
 pineNavbar.enableCalendar();
+pineNavbar.enableNotes();
