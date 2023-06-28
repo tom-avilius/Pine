@@ -4439,6 +4439,7 @@ const year = document.getElementById('year');
 const calendarSection = document.getElementById('calendar');
 
 // all stat elements
+const statsSection = document.getElementById('stats')
 const cpuStat = document.getElementById('cpu-stat');
 const ramStat = document.getElementById('ram-stat');
 const ramStatValue = document.getElementById('ram-stat-value');
@@ -4448,13 +4449,30 @@ const cpuStatValue = document.getElementById('cpu-stat-value');
 const weatherSection = document.getElementById('weather');
 
 // all launcher elements 
+const launcherSection = document.getElementById('launchers')
 const explorerLauncher = document.getElementById('explorer');
 
 // all navbar elements
 const navbarSection = document.getElementById('navbar');
+const homeBtn = document.getElementById('home-btn');
+const settingsBtn = document.getElementById('settings-btn');
+const calenderBtn = document.getElementById('calender-btn');
+const notesBtn = document.getElementById('notes-btn');
 
 // all notes elements
 const notesSection = document.getElementById('notes');
+
+// list of all sections
+const sections = {
+  calendarSection, 
+  notesSection, 
+  weatherSection,
+  navbarSection,
+  launcherSection,
+  statsSection,
+  quotesSection,
+  todaySection,
+}
 
 // -----------------------------------------------
 
@@ -4598,6 +4616,46 @@ class stats {
     setTimeout(this.enableStatistics, 1000);
   } 
 }
+
+// class to manage primary navbar
+class PineNavbar {
+
+  constructor(home, calendar, notes, settings, sectionsList = {}) {
+
+    // initializing instances
+    this.home = home;
+    this.calendar = calendar;
+    this.notes = notes;
+    this.settings = settings;
+
+    this.sections = sectionsList;
+
+    this.sections.calendarSection.classList.add('hidden')
+    this.sections.notesSection.classList.add('hidden');
+  }
+
+  // home button clicked
+  enableHome = () => {
+
+    
+    this.home.addEventListener('click', () => {
+
+      // hiding elements
+      this.sections.calendarSection.classList.add('hidden')
+      this.sections.notesSection.classList.add('hidden');
+
+      // showing elements
+      this.sections.weatherSection.classList.remove('hidden');
+      this.sections.quotesSection.classList.remove('hidden');
+      this.sections.todaySection.classList.remove('hidden');
+      this.sections.launcherSection.classList.remove('hidden');
+      this.sections.statsSection.classList.remove('hidden');
+    })
+  } 
+
+  // calendar button clicked
+}
+
 // ----------------------------------------------
 
 
@@ -4605,7 +4663,10 @@ class stats {
 // Actual execution flow
 
 // creating objects of classes defined above
+// statistics object
 const statistics = new stats(ramStatValue, cpuStatValue);
+// navbar object
+const pineNavbar = new PineNavbar(homeBtn, calenderBtn, notesBtn, settingsBtn, sections);
 
 // making elements draggable below
 // today section
@@ -4637,3 +4698,6 @@ formatQuote();
 
 // enabling cpu and ram statistics
 statistics.enableStatistics();
+
+// enabling primary navbar functions
+pineNavbar.enableHome();

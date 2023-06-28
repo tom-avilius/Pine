@@ -72,6 +72,11 @@
     font-size: 1.8rem;
 }
 
+.hidden {
+
+    display: none !important;
+}
+
 #hours, #minutes {
 
     font-size: 4.0rem;
@@ -87,6 +92,11 @@ nav ul li {
     display: inline-block;
     padding: 20px;
     font-family: 'Open Sans';
+}
+
+nav ul li a:hover {
+
+    cursor: pointer;
 }
 
 #today {
