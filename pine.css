@@ -16,6 +16,26 @@
     cursor: inherit;
 }
 
+#btn-next {
+
+    margin-top: 20px;
+    background-color: transparent;
+    border: 1px solid black;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Open Sans';
+    padding: 5px 8px;
+    border-radius: 15px;
+}
+
+#btn-next:hover {
+
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.685);
+    color: rgba(255, 255, 255, 0.841);
+}
+
 #calendar {
 
     display: flex;
@@ -124,6 +144,48 @@ nav ul li a:hover {
 #movie, #year {
 
     float: right;
+}
+
+#username {
+
+    background-color: rgba(0, 0, 0, 0.688);
+    padding: 5%;
+    margin-left: 35%;
+    margin-right: 35%;
+    text-align: center;
+}
+
+#username-input {
+
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 1rem;
+    padding: 5px 8px;
+    border-radius: 15px;
+    outline: none;
+}
+
+#username-input:active, #username-input:focus {
+
+    border-color: rgba(35, 6, 1, 0.689);
+}
+
+#city-input {
+
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 1rem;
+    padding: 5px 8px;
+    border-radius: 15px;
+    outline: none;
+}
+
+#city-input:focus, #city-input:active {
+
+    border-color: rgba(35, 6, 1, 0.689);
 }
 
 #weather {

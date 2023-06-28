@@ -4647,6 +4647,7 @@ class PineNavbar {
       // hiding elements
       this.sections.calendarSection.classList.add('hidden')
       this.sections.notesSection.classList.add('hidden');
+      this.sections.settingsSection.classList.add('hidden');
 
       // showing elements
       this.sections.weatherSection.classList.remove('hidden');
@@ -4654,7 +4655,6 @@ class PineNavbar {
       this.sections.todaySection.classList.remove('hidden');
       this.sections.launcherSection.classList.remove('hidden');
       this.sections.statsSection.classList.remove('hidden');
-      this.sections.settingsSection.classList.add('hidden');
     })
   } 
 
@@ -4715,6 +4715,74 @@ class PineNavbar {
   }
 }
 
+// class to manage weather and location
+class Weather {
+
+  constructor (sections = {}) {
+    
+    this.sections = sections;
+  }
+
+  // function to make call to weatherapi
+  async makeCall () {
+
+    let response = await fetch()
+  }
+
+  // function to ask for username
+  askUsername() {
+
+    // showing the username info wizard
+    document.getElementById('username').classList.remove('hidden');
+
+    // removing all other elements from the scene
+    this.sections.notesSection.classList.add('hidden');
+    this.sections.weatherSection.classList.add('hidden');
+    this.sections.quotesSection.classList.add('hidden');
+    this.sections.todaySection.classList.add('hidden');
+    this.sections.launcherSection.classList.add('hidden');
+    this.sections.statsSection.classList.add('hidden');
+    this.sections.settingsSection.classList.add('hidden');
+    this.sections.navbarSection.classList.add('hidden');
+
+    // adding click event listener to the next button to read info
+    // regarding username and city
+    document.getElementById('btn-next').addEventListener('click', () => {
+
+      // username
+      let username = document.getElementById('username-input').value;
+      disk.store('username', username+'');
+
+      // city
+      let city = document.getElementById('city-input').value;
+      disk.store('city', city+'');
+
+      // showing elements
+      this.sections.weatherSection.classList.remove('hidden');
+      this.sections.quotesSection.classList.remove('hidden');
+      this.sections.todaySection.classList.remove('hidden');
+      this.sections.launcherSection.classList.remove('hidden');
+      this.sections.statsSection.classList.remove('hidden');
+
+      // hiding the userinfo wizard
+      document.getElementById('username').classList.add('hidden');
+    });
+  }
+  
+  // function to get username
+  // if the user did not enter his/her name then it will ask again for the username
+  getUsername() {
+
+    if (disk.get('username') == null) {
+
+      // asking username if it is not known
+      this.askUsername();
+    }
+
+    return disk.get('username');
+  }
+}
+
 // ----------------------------------------------
 
 
@@ -4726,6 +4794,8 @@ class PineNavbar {
 const statistics = new stats(ramStatValue, cpuStatValue);
 // navbar object
 const pineNavbar = new PineNavbar(homeBtn, calendarBtn, notesBtn, settingsBtn, sections);
+// weather object
+const weather = new Weather(sections);
 
 // making elements draggable below
 // today section
@@ -4750,6 +4820,9 @@ element.draggable(settingsSection, 'settings');
 
 
 // calling functions below
+
+// fetching the username
+weather.getUsername();
 
 // starting time
 startTime();
