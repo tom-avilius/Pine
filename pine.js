@@ -4456,7 +4456,7 @@ const explorerLauncher = document.getElementById('explorer');
 const navbarSection = document.getElementById('navbar');
 const homeBtn = document.getElementById('home-btn');
 const settingsBtn = document.getElementById('settings-btn');
-const calenderBtn = document.getElementById('calender-btn');
+const calendarBtn = document.getElementById('calendar-btn');
 const notesBtn = document.getElementById('notes-btn');
 
 // all notes elements
@@ -4637,7 +4637,6 @@ class PineNavbar {
   // home button clicked
   enableHome = () => {
 
-    
     this.home.addEventListener('click', () => {
 
       // hiding elements
@@ -4654,6 +4653,22 @@ class PineNavbar {
   } 
 
   // calendar button clicked
+  enableCalendar = () => {
+
+    this.calendar.addEventListener('click', () => {
+
+      // showing elements
+      this.sections.calendarSection.classList.remove('hidden')
+
+      // hiding elements
+      this.sections.notesSection.classList.add('hidden');
+      this.sections.weatherSection.classList.add('hidden');
+      this.sections.quotesSection.classList.add('hidden');
+      this.sections.todaySection.classList.add('hidden');
+      this.sections.launcherSection.classList.add('hidden');
+      this.sections.statsSection.classList.add('hidden');
+    })
+  }
 }
 
 // ----------------------------------------------
@@ -4666,7 +4681,7 @@ class PineNavbar {
 // statistics object
 const statistics = new stats(ramStatValue, cpuStatValue);
 // navbar object
-const pineNavbar = new PineNavbar(homeBtn, calenderBtn, notesBtn, settingsBtn, sections);
+const pineNavbar = new PineNavbar(homeBtn, calendarBtn, notesBtn, settingsBtn, sections);
 
 // making elements draggable below
 // today section
@@ -4701,3 +4716,4 @@ statistics.enableStatistics();
 
 // enabling primary navbar functions
 pineNavbar.enableHome();
+pineNavbar.enableCalendar();
