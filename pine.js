@@ -4462,6 +4462,9 @@ const notesBtn = document.getElementById('notes-btn');
 // all notes elements
 const notesSection = document.getElementById('notes');
 
+// all settings elements
+const settingsSection = document.getElementById('settings')
+
 // list of all sections
 const sections = {
   calendarSection, 
@@ -4472,6 +4475,7 @@ const sections = {
   statsSection,
   quotesSection,
   todaySection,
+  settingsSection,
 }
 
 // -----------------------------------------------
@@ -4632,6 +4636,7 @@ class PineNavbar {
 
     this.sections.calendarSection.classList.add('hidden')
     this.sections.notesSection.classList.add('hidden');
+    this.sections.settingsSection.classList.add('hidden');
   }
 
   // home button clicked
@@ -4649,6 +4654,7 @@ class PineNavbar {
       this.sections.todaySection.classList.remove('hidden');
       this.sections.launcherSection.classList.remove('hidden');
       this.sections.statsSection.classList.remove('hidden');
+      this.sections.settingsSection.classList.add('hidden');
     })
   } 
 
@@ -4667,6 +4673,7 @@ class PineNavbar {
       this.sections.todaySection.classList.add('hidden');
       this.sections.launcherSection.classList.add('hidden');
       this.sections.statsSection.classList.add('hidden');
+      this.sections.settingsSection.classList.add('hidden');
     })
   }
 
@@ -4685,6 +4692,25 @@ class PineNavbar {
       this.sections.todaySection.classList.add('hidden');
       this.sections.launcherSection.classList.add('hidden');
       this.sections.statsSection.classList.add('hidden');
+      this.sections.settingsSection.classList.add('hidden');
+    })
+  }
+
+  enableSettings = () => {
+
+    this.settings.addEventListener('click', () => {
+
+      // showing elements
+      this.sections.settingsSection.classList.remove('hidden');
+      
+      // hiding elements
+      this.sections.calendarSection.classList.add('hidden')
+      this.sections.weatherSection.classList.add('hidden');
+      this.sections.quotesSection.classList.add('hidden');
+      this.sections.todaySection.classList.add('hidden');
+      this.sections.launcherSection.classList.add('hidden');
+      this.sections.statsSection.classList.add('hidden');
+      this.sections.notesSection.classList.add('hidden');
     })
   }
 }
@@ -4719,6 +4745,8 @@ element.draggable(explorerLauncher, 'explorer');
 element.draggable(navbarSection, 'navbar');
 // notes section
 element.draggable(notesSection, 'notes');
+// settings sections
+element.draggable(settingsSection, 'settings');
 
 
 // calling functions below
@@ -4736,3 +4764,4 @@ statistics.enableStatistics();
 pineNavbar.enableHome();
 pineNavbar.enableCalendar();
 pineNavbar.enableNotes();
+pineNavbar.enableSettings();
