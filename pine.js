@@ -4802,7 +4802,6 @@ class Weather {
 
       temperature.innerText = data.current.temp_c+"°C";
       info.innerText = data.current.condition.text;
-      console.log(data.current.condition.text);
     });
   }
 }
@@ -4834,6 +4833,8 @@ const statistics = new stats(ramStatValue, cpuStatValue);
 const pineNavbar = new PineNavbar(homeBtn, calendarBtn, notesBtn, settingsBtn, sections);
 // weather object
 const weather = new Weather(sections);
+// initiate object
+const initiate = new Initiate();
 
 // making elements draggable below
 // today section
@@ -4858,6 +4859,8 @@ element.draggable(settingsSection, 'settings');
 
 
 // calling functions below
+
+initiate.info(weatherCity, weatherCountry);
 
 // fetching the username
 weather.setWeatherInfo(weatherCity, weatherCountry, weatherTemperature, weatherIcon, weatherInfo);
