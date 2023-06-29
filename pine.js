@@ -4437,6 +4437,9 @@ const year = document.getElementById('year');
 
 // all calendar elements
 const calendarSection = document.getElementById('calendar');
+const calendarDay = document.getElementById('cl-day');
+const calendarMonth = document.getElementById('cl-month');
+const calendarDates = document.getElementsByClassName('week-day');
 
 // all stat elements
 const statsSection = document.getElementById('stats')
@@ -4827,13 +4830,15 @@ class Initiate {
 
 class Calendar {
 
-  constructor () {
+  constructor (clDay = HTMLSpanElement, clMonth = HTMLSpanElement, clDates = HTMLSpanElement) {
 
+    this.clDay = clDay;
+    this.clDates = clDates;
+    this.clMonth = clMonth;
   }
 
   generateMonthDates(month = 6, year = 2023) {
 
-    var date = new Date(year, month, 1)
     var daysInMonth = new Date(year, month+1, 0).getDate();
     var dates = [];
     
@@ -4843,6 +4848,42 @@ class Calendar {
     }
 
     return dates;
+  }
+
+  formatMonth (month = 6, year = 2023) {
+
+    var dates = this.generateMonthDates(month = 6, year = 2023);
+    var today = new Date();
+    this.clDay.innerText = this.weekDay(today.getDay())+' '+this.thisDate(today.getDate()+'');
+    var count = 0;
+
+    dates.forEach( (value) => {
+
+      
+    });
+  }
+
+  weekDay = (today) => {
+
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    return days[today];
+  }
+
+  thisDate = (date) => {
+
+    if (date == '1') {
+
+      return "1st";
+    } else if (date == '2') {
+
+      return "2nd";
+    } else if (date == '3') {
+
+      return "3rd";
+    }
+
+    return date+"th";
   }
 }
 
@@ -4862,7 +4903,7 @@ const weather = new Weather(sections);
 // initiate object
 const initiate = new Initiate();
 // creating calendar object
-const calendar = new Calendar();
+const calendar = new Calendar(calendarDay, calendarMonth, calendarDates);
 
 // making elements draggable below
 // today section
@@ -4907,7 +4948,7 @@ formatQuote();
 statistics.enableStatistics();
 
 // generating month dates
-calendar.generateMonthDates(6, 2023);
+calendar.formatMonth(6, 2023);
 
 // enabling primary navbar functions
 pineNavbar.enableHome();
