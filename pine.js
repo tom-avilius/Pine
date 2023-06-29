@@ -4447,6 +4447,11 @@ const cpuStatValue = document.getElementById('cpu-stat-value');
 
 // all weather elements
 const weatherSection = document.getElementById('weather');
+const weatherCity = document.getElementById('city');
+const weatherCountry = document.getElementById('country');
+const weatherTemperature = document.getElementById('temperature');
+const weatherIcon = document.getElementById('weather-icon');
+const weatherInfo = document.getElementById('weather-info');
 
 // all launcher elements 
 const launcherSection = document.getElementById('launchers')
@@ -4721,12 +4726,17 @@ class Weather {
   constructor (sections = {}) {
     
     this.sections = sections;
+    this.username = this.getUsername();
+    this.city = disk.get('city')+'';
   }
 
   // function to make call to weatherapi
   async makeCall () {
 
-    let response = await fetch()
+    let response = await fetch("http://api.weatherapi.com/v1/current.json?key=4cf4e91702e544c3bde103141232806&q="+this.city);
+    let data = await response.json();
+
+    return data;
   }
 
   // function to ask for username
@@ -4755,7 +4765,11 @@ class Weather {
 
       // city
       let city = document.getElementById('city-input').value;
+      let country = document.getElementById('country-input').value;
+      document.getElementById('city').innerText = city+'';
+      document.getElementById('country').innerText = country+'';
       disk.store('city', city+'');
+      disk.store('country', country+'');
 
       // showing elements
       this.sections.weatherSection.classList.remove('hidden');
@@ -4780,6 +4794,17 @@ class Weather {
     }
 
     return disk.get('username');
+  }
+
+  setWeatherInfo = (city = HTMLSpanElement, country = HTMLSpanElement, temperature = HTMLSpanElement, icon = HTMLSpanElement, info = HTMLSpanElement) => {
+
+    this.makeCall().then(data => {
+
+      temperature.innerText = data.current.temp_c+"°C";
+      info.innerText = data.current.condition.text;
+      icon.setAttribute('style', "background: url(" + "'"+data.current.condition.icon+"'"+")")
+      console.log(data.current.condition.text);
+    });
   }
 }
 
@@ -4822,7 +4847,7 @@ element.draggable(settingsSection, 'settings');
 // calling functions below
 
 // fetching the username
-weather.getUsername();
+weather.setWeatherInfo(weatherCity, weatherCountry, weatherTemperature, weatherIcon, weatherInfo);
 
 // starting time
 startTime();
