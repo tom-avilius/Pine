@@ -122,6 +122,7 @@
 #navbar nav ul {
 
     list-style-type: none;
+    z-index: +1;
 }
 
 nav ul li {

@@ -4825,6 +4825,27 @@ class Initiate {
   }
 }
 
+class Calendar {
+
+  constructor () {
+
+  }
+
+  generateMonthDates(month = 6, year = 2023) {
+
+    var date = new Date(year, month, 1)
+    var daysInMonth = new Date(year, month+1, 0).getDate();
+    var dates = [];
+    
+    for (var day = 1; day <= daysInMonth; day++) {
+
+      dates.push(new Date(year, month, day));
+    }
+
+    return dates;
+  }
+}
+
 // ----------------------------------------------
 
 
@@ -4840,6 +4861,8 @@ const pineNavbar = new PineNavbar(homeBtn, calendarBtn, notesBtn, settingsBtn, s
 const weather = new Weather(sections);
 // initiate object
 const initiate = new Initiate();
+// creating calendar object
+const calendar = new Calendar();
 
 // making elements draggable below
 // today section
@@ -4871,7 +4894,7 @@ initiate.info(weatherCity, weatherCountry);
 // initializing actions
 initiate.action(navbarSection);
 
-// fetching the username
+// fetching the username as well as weather info
 weather.setWeatherInfo(weatherCity, weatherCountry, weatherTemperature, weatherIcon, weatherInfo);
 
 // starting time
@@ -4882,6 +4905,9 @@ formatQuote();
 
 // enabling cpu and ram statistics
 statistics.enableStatistics();
+
+// generating month dates
+calendar.generateMonthDates(6, 2023);
 
 // enabling primary navbar functions
 pineNavbar.enableHome();
