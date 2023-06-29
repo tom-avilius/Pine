@@ -4802,7 +4802,6 @@ class Weather {
 
       temperature.innerText = data.current.temp_c+"°C";
       info.innerText = data.current.condition.text;
-      icon.setAttribute('style', "background: url(" + "'"+data.current.condition.icon+"'"+")")
       console.log(data.current.condition.text);
     });
   }
