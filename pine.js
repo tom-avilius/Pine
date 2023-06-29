@@ -4807,6 +4807,20 @@ class Weather {
   }
 }
 
+// class to initiate pine behaviour on render
+class Initiate {
+
+  constructor () {
+
+  }
+
+  info = (city, country) => {
+
+    city.innerText = disk.get('city');
+    country.innerText = disk.get('country');
+  }
+}
+
 // ----------------------------------------------
 
 

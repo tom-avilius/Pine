@@ -81,6 +81,23 @@
     font-size: 1.4rem;
 }
 
+#country-input {
+
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border: 1px solid black;
+    font-size: 1rem;
+    padding: 5px 8px;
+    border-radius: 15px;
+    outline: none;
+}
+
+#country-input:active, #country-input:focus {
+
+    border-color: rgba(35, 6, 1, 0.689);
+}
+
 #cpu-stat, #ram-stat{
 
     text-align: center;
@@ -153,8 +170,6 @@ nav ul li a:hover {
     margin-left: 35%;
     margin-right: 35%;
     text-align: center;
-
-    display: none;
 }
 
 #username-input {
