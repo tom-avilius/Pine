@@ -4818,6 +4818,11 @@ class Initiate {
     city.innerText = disk.get('city');
     country.innerText = disk.get('country');
   }
+
+  action = (navbar) => {
+
+    navbar.classList.remove('hidden');
+  }
 }
 
 // ----------------------------------------------
@@ -4860,7 +4865,11 @@ element.draggable(settingsSection, 'settings');
 
 // calling functions below
 
+// initializing information
 initiate.info(weatherCity, weatherCountry);
+
+// initializing actions
+initiate.action(navbarSection);
 
 // fetching the username
 weather.setWeatherInfo(weatherCity, weatherCountry, weatherTemperature, weatherIcon, weatherInfo);
