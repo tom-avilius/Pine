@@ -4855,6 +4855,7 @@ class Calendar {
     var dates = this.generateMonthDates(month = 6, year = 2023);
     var today = new Date();
     this.clDay.innerText = this.weekDay(today.getDay())+' '+this.thisDate(today.getDate()+'');
+    this.clMonth.innerText = this.thisMonth(today.getMonth());
     var count = 0;
 
     dates.forEach( (value) => {
@@ -4884,6 +4885,26 @@ class Calendar {
     }
 
     return date+"th";
+  }
+
+  thisMonth = (month) => {
+
+    const monthList = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+
+    return monthList[month];
   }
 }
 
