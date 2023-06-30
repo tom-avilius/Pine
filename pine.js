@@ -4801,11 +4801,17 @@ class Weather {
 
   setWeatherInfo = (city = HTMLSpanElement, country = HTMLSpanElement, temperature = HTMLSpanElement, icon = HTMLSpanElement, info = HTMLSpanElement) => {
 
-    this.makeCall().then(data => {
+    try {
 
-      temperature.innerText = data.current.temp_c+"°C";
-      info.innerText = data.current.condition.text;
-    });
+      this.makeCall().then(data => {
+
+        temperature.innerText = data.current.temp_c+"°C";
+        info.innerText = data.current.condition.text;
+      });
+    } catch (err) {
+
+      console.log(err);
+    }
   }
 }
 
@@ -4828,6 +4834,7 @@ class Initiate {
   }
 }
 
+// class to manage calendar functions
 class Calendar {
 
   constructor (clDay = HTMLSpanElement, clMonth = HTMLSpanElement, clDates = []) {
@@ -4837,6 +4844,7 @@ class Calendar {
     this.clMonth = clMonth;
   }
 
+  // function to generate month dates
   generateMonthDates(month = 6, year = 2023) {
 
     var daysInMonth = new Date(year, month+1, 0).getDate();
@@ -4850,6 +4858,7 @@ class Calendar {
     return dates;
   }
 
+  // function to fill the month dates in calendar
   formatMonth (month = 6, year = 2023) {
 
     // generating the month dates
