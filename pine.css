@@ -21,6 +21,8 @@
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: rgba(0, 0, 0, 0.1);
+
+    transition: all 0.2s ease-in;
 }
 
 #add-todo p {
@@ -32,6 +34,7 @@
 
 #add-todo input {
 
+    outline: none;
     font-family: 'Open Sans';
     font-size: 1rem;
     width: 350px;

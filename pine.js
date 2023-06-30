@@ -4441,6 +4441,10 @@ const calendarDay = document.getElementById('cl-day');
 const calendarMonth = document.getElementById('cl-month');
 const calendarDates = document.getElementsByClassName('week-day');
 const todoAddButton = document.getElementById('todo-add-btn');
+const todoInput = document.getElementById('add-todo-text');
+const todoInputButton = document.getElementById('todo-submit');
+const todoInputSection = document.getElementById('add-todo');
+const todoSection = document.getElementById('cl-todo-list');
 
 // all stat elements
 const statsSection = document.getElementById('stats')
@@ -4964,14 +4968,41 @@ class Todo {
 
   constructor () {
 
+    this.todoNumber = 0;
+    try {
 
+      this.todoNumber = disk.get('todo-number');
+    } catch (err) {
+
+      if (err) {
+
+        this.todoNumber = 12;
+        disk.store('todo-number', 12);
+      }
+    }
   }
 
-  enableAddButton = (addButton = HTMLButtonElement, calendar) => {
+  enableAddButton = (addButton = HTMLButtonElement, calendar, todoInput, todoInputButton, inputSection, clTodo) => {
+
+    todoInputButton.addEventListener('click', () => {
+
+      calendar.classList.remove('hidden');
+      inputSection.classList.add('hidden');
+
+      let todo = todoInput.value;
+      
+      clTodo.insertAdjacentHTML(
+        'beforeend', 
+        '<div class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>'
+      )
+
+      this.todoNumber++;
+      disk.store('todo-number', this.todoNumber)
+    });
 
     addButton.addEventListener('click', () => {
 
-      calendar.classList.add('hidden');
+      inputSection.classList.remove('hidden');
     });
   }
 }
@@ -5042,7 +5073,7 @@ statistics.enableStatistics();
 calendar.formatMonth(5, 2023);
 
 // enabling todo add button functionality
-todo.enableAddButton(todoAddButton, calendarSection);
+todo.enableAddButton(todoAddButton, calendarSection, todoInput, todoInputButton, todoInputSection, todoSection);
 
 // enabling primary navbar functions
 pineNavbar.enableHome();
