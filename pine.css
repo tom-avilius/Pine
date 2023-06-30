@@ -16,6 +16,27 @@
     cursor: inherit;
 }
 
+#add-todo {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#add-todo p {
+
+    font-family: 'Open Sans';
+    font-size: 1.2rem;
+    padding-bottom: 15px;
+}
+
+#add-todo input {
+
+    font-family: 'Open Sans';
+    font-size: 1rem;
+    width: 350px;
+}
+
 #btn-next {
 
     margin-top: 20px;
@@ -64,6 +85,7 @@
 #cl-todo {
 
     min-width: 380px;
+    max-width: 450px;
 }
 
 #cl-todo button {
@@ -185,6 +207,14 @@ nav ul li a:hover {
     border-radius: 1px;
 }
 
+#todo-submit {
+
+    margin-left: 70px;
+    margin-right: 70px;
+
+    font-size: 1.2rem !important;
+}
+
 #quotes {
 
     font-family: 'Open Sans', sans-serif;
@@ -297,7 +327,6 @@ nav ul li a:hover {
   }
   .checkbox-wrapper-11 input[type=checkbox] {
     -webkit-appearance: none;
-    -moz-appearance: none;
     position: relative;
     height: 15px;
     width: 15px;
@@ -505,3 +534,5 @@ nav ul li a:hover {
     box-shadow: 0 -15px 0 0px #4F29F0, 14px -8px 0 0px #4F29F0, 14px 8px 0 0px #4F29F0, 0 15px 0 0px #4F29F0, -14px 8px 0 0px #4F29F0, -14px -8px 0 0px #4F29F0;
 }
 }
+
+

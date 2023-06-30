@@ -4440,6 +4440,7 @@ const calendarSection = document.getElementById('calendar');
 const calendarDay = document.getElementById('cl-day');
 const calendarMonth = document.getElementById('cl-month');
 const calendarDates = document.getElementsByClassName('week-day');
+const todoAddButton = document.getElementById('todo-add-btn');
 
 // all stat elements
 const statsSection = document.getElementById('stats')
@@ -4958,6 +4959,23 @@ class Calendar {
   }
 }
 
+// class to manage todo items
+class Todo {
+
+  constructor () {
+
+
+  }
+
+  enableAddButton = (addButton = HTMLButtonElement, calendar) => {
+
+    addButton.addEventListener('click', () => {
+
+      calendar.classList.add('hidden');
+    });
+  }
+}
+
 // ----------------------------------------------
 
 
@@ -4975,6 +4993,8 @@ const weather = new Weather(sections);
 const initiate = new Initiate();
 // creating calendar object
 const calendar = new Calendar(calendarDay, calendarMonth, calendarDates);
+// creating todo object
+const todo = new Todo();
 
 // making elements draggable below
 // today section
@@ -5020,6 +5040,9 @@ statistics.enableStatistics();
 
 // generating month dates
 calendar.formatMonth(5, 2023);
+
+// enabling todo add button functionality
+todo.enableAddButton(todoAddButton, calendarSection);
 
 // enabling primary navbar functions
 pineNavbar.enableHome();
