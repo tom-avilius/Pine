@@ -4806,7 +4806,14 @@ class Weather {
       this.makeCall().then(data => {
 
         temperature.innerText = data.current.temp_c+"°C";
-        info.innerText = data.current.condition.text;
+
+        if (data.current.condition.text == "Moderate or heavy rain with thunder") {
+
+          info.innerText = "Rain and Thunder"
+        } else {
+          info.innerText = data.current.condition.text;
+        }
+        
       });
     } catch (err) {
 

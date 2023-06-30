@@ -63,7 +63,7 @@
 
 #cl-todo {
 
-    max-width: 230px;
+    max-width: 300px;
 }
 
 #cl-todo button {
@@ -158,6 +158,12 @@ nav ul li a:hover {
 .todo-item {
 
     font-size: 1.1rem;
+    font-family: 'Open Sans';
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 8px 20px;
+    border-radius: 1px;
 }
 
 #quotes {
