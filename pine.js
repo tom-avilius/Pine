@@ -4830,7 +4830,7 @@ class Initiate {
 
 class Calendar {
 
-  constructor (clDay = HTMLSpanElement, clMonth = HTMLSpanElement, clDates = HTMLSpanElement) {
+  constructor (clDay = HTMLSpanElement, clMonth = HTMLSpanElement, clDates = []) {
 
     this.clDay = clDay;
     this.clDates = clDates;
@@ -4852,18 +4852,50 @@ class Calendar {
 
   formatMonth (month = 6, year = 2023) {
 
-    var dates = this.generateMonthDates(month = 6, year = 2023);
+    // generating the month dates
+    var dates = this.generateMonthDates(month, year);
+
+    // generating today's date used to display 
+    // current day, date, and month
     var today = new Date();
+
+    // setting the day, date and month
     this.clDay.innerText = this.weekDay(today.getDay())+' '+this.thisDate(today.getDate()+'');
     this.clMonth.innerText = this.thisMonth(today.getMonth());
-    var count = 0;
+    
+    // setting every date element as empty to fill it later
+    var dateNumber = this.clDates.length;
+    while(dateNumber > -1) {
 
+      try {
+
+        this.clDates[dateNumber-1].innerText = " ";
+      } catch (err) {
+
+        console.log(err);
+      }
+
+      dateNumber--;
+    }
+
+    // formating each date in the month
+    // to display in the calendar
+    var count = dates[0].getDay();
+
+    // if count is 6 that is, the week starts from sunday - 
+    // then count should be 0 as sunday has 0 index 
+    if (count == 6) {
+
+      count = 0;
+    }
     dates.forEach( (value) => {
 
-      
+      this.clDates[count].innerText = value.getDate()+'';
+      count++
     });
   }
 
+  // returns the day in word for the day in number
   weekDay = (today) => {
 
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -4871,6 +4903,7 @@ class Calendar {
     return days[today];
   }
 
+  // returns the date with 'th', 'st', 'nd' or 'rd' suffix as required
   thisDate = (date) => {
 
     if (date == '1') {
@@ -4887,6 +4920,7 @@ class Calendar {
     return date+"th";
   }
 
+  // returns the name of the month for the month in number
   thisMonth = (month) => {
 
     const monthList = [
@@ -4969,7 +5003,7 @@ formatQuote();
 statistics.enableStatistics();
 
 // generating month dates
-calendar.formatMonth(6, 2023);
+calendar.formatMonth(5, 2023);
 
 // enabling primary navbar functions
 pineNavbar.enableHome();
