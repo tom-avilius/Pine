@@ -61,6 +61,19 @@
     font-size: 2rem;
 }
 
+#cl-todo {
+
+    max-width: 230px;
+}
+
+#cl-todo button {
+
+    margin-top: 30px;
+    text-align: center;
+
+    width: -webkit-fill-available;
+}
+
 #cl-week-info {
 
     font-size: 1.2rem;
