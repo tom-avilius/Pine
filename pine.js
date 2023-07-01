@@ -4984,12 +4984,15 @@ class Todo {
 
   enableAddButton = (addButton = HTMLButtonElement, calendar, todoInput, todoInputButton, inputSection, clTodo) => {
 
+    this.showExisting(clTodo);
+
     todoInputButton.addEventListener('click', () => {
 
       calendar.classList.remove('hidden');
       inputSection.classList.add('hidden');
 
       let todo = todoInput.value;
+      disk.store('todo'+this.todoNumber,'<div class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>')
       
       clTodo.insertAdjacentHTML(
         'beforeend', 
@@ -4997,13 +5000,33 @@ class Todo {
       )
 
       this.todoNumber++;
-      disk.store('todo-number', this.todoNumber)
+      disk.store('todo-number', this.todoNumber);
     });
 
     addButton.addEventListener('click', () => {
 
       inputSection.classList.remove('hidden');
     });
+  }
+
+  // function to show all todo elements added by users on refresh
+  showExisting(clTodo) {
+
+    var count = this.todoNumber-1
+    while (true) {
+
+      const val = disk.get('todo'+count);
+      count--;
+
+      if (val === null) {
+
+        console.log('End');
+        return ;
+      }
+
+      clTodo.insertAdjacentHTML(
+        'afterbegin', val+'')
+    }
   }
 }
 
