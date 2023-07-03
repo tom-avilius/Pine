@@ -4991,7 +4991,7 @@ class Todo {
   constructor () {
 
     // stores the number of initial todo items
-    this.todoNumber = 0;
+    this.todoNumber = 1;
 
     // setting the todo number if it already has been initialized before to the value
     // that was assigned last time.
@@ -5005,6 +5005,9 @@ class Todo {
         this.todoNumber = 12;
         disk.store('todo-number', 12);
       }
+    } finally {
+
+      this.todoNumber = 1;
     }
 
     // adding event listeners to the default todo items 
@@ -5014,12 +5017,14 @@ class Todo {
       document.getElementById('02-11').addEventListener('click', () => {
 
         document.getElementById('11').style.opacity = 0;
+        setTimeout(() => {document.getElementById('11').style.display = "none"}, 600);
         disk.store('02-11', 'false');
       });
 
       document.getElementById('12').addEventListener('click', () => {
 
         document.getElementById('12').style.opacity = 0;
+        setTimeout(() => {document.getElementById('12').style.display = "none"}, 600)
         disk.store('02-12', 'false');
       });
     } catch (err) {
@@ -5032,6 +5037,8 @@ class Todo {
   // to add new todo items
   // this function also calls the showExisting function to show the existing todo items.
   enableAddButton = (addButton = HTMLButtonElement, calendar, todoInput, todoInputButton, inputSection, clTodo) => {
+
+    console.log(this.todoNumber)
 
     // calling this function to show the existing todo items
     this.showExisting(clTodo);
@@ -5047,16 +5054,27 @@ class Todo {
       // getting the todo value i.e. the text that was entered
       let todo = todoInput.value;
       // storing the todo value as the todo number inside the local storage
-      disk.store('todo'+this.todoNumber,'<div class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>')
+      disk.store('todo'+this.todoNumber,'<div id="' +this.todoNumber+'"' +'class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>')
       
       // adding the todo as html
       clTodo.insertAdjacentHTML(
         'beforeend', 
-        '<div class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>'
+        '<div id="' +this.todoNumber +'"' +'class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>'
       );
 
       // attaching event listener to the todo checkbox to know that is has been clicked.
-      document.getElementById('02-'+this.todoNumber).addEventListener('click', this.checkedHandler);
+      document.getElementById('02-'+this.todoNumber).addEventListener('click', (event) => {
+
+        const target = event.target.id+'';
+        const elementId = target.slice(3);
+        
+        const element = document.getElementById((elementId)+'');
+
+        // removing the element
+        disk.free('todo'+elementId);
+        element.style.opacity = "0";
+        setTimeout(() => {element.style.display = "none"}, 600);
+      });
 
       // incrementing the todo number and storing it in the local storage
       // for future reference
@@ -5093,21 +5111,22 @@ class Todo {
         'afterbegin', val+'');
 
       // attaching event listener to its checkbox
-      document.getElementById('02-'+count).addEventListener('click', this.checkedHandler);
+      document.getElementById('02-'+count).addEventListener('click', (event) => {
+
+        const target = event.target.id+'';
+        const elementId = target.slice(3);
+
+        const element = document.getElementById((elementId)+'');
+
+        // removing the element
+        disk.free('todo'+elementId);
+        element.style.opacity = "0";
+        setTimeout(() => element.style.display = "none", 600);
+      });
 
       // decrementing the count: loop variable
       count--;
     }
-  }
-
-  removeTodo() {
-
-
-  }
-
-  checkedHandler = () => {
-
-    console.log('hola');
   }
 }
 
