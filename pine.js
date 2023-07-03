@@ -4834,15 +4834,37 @@ class Initiate {
 
   }
 
+  // function to initiate information initialization
   info = (city, country) => {
 
+    // initializing the city name with the user provided name
     city.innerText = disk.get('city');
+    // initializing the county name with the user provided name
     country.innerText = disk.get('country');
   }
 
+  // function to initiate actions initialization
   action = (navbar) => {
 
+    // ensuring that the navbar is visible on load
     navbar.classList.remove('hidden');
+
+    // hiding the default todo-items if they were cancelled by the user
+    try {
+
+      if (disk.get('02-11') == 'false') {
+
+        document.getElementById('11').classList.add('hidden');
+      }
+
+      if (disk.get('02-12') == 'false') {
+
+        document.getElementById('12').classList.add('hidden');
+      }
+    } catch (err) {
+
+      // do nothing at all..
+    }
   }
 }
 
