@@ -4990,7 +4990,11 @@ class Todo {
 
   constructor () {
 
+    // stores the number of initial todo items
     this.todoNumber = 0;
+
+    // setting the todo number if it already has been initialized before to the value
+    // that was assigned last time.
     try {
 
       this.todoNumber = disk.get('todo-number');
@@ -5003,6 +5007,8 @@ class Todo {
       }
     }
 
+    // adding event listeners to the default todo items 
+    // to know when they are checked by the users and hiding them afterwards
     try {
 
       document.getElementById('02-11').addEventListener('click', () => {
@@ -5022,25 +5028,38 @@ class Todo {
     }
   }
 
+  // function to enable the properties of the todo add button
+  // to add new todo items
+  // this function also calls the showExisting function to show the existing todo items.
   enableAddButton = (addButton = HTMLButtonElement, calendar, todoInput, todoInputButton, inputSection, clTodo) => {
 
+    // calling this function to show the existing todo items
     this.showExisting(clTodo);
 
+    // adding click event listener to the todo add button to add new items
     todoInputButton.addEventListener('click', () => {
 
+      // showing the calendar and hiding the input section for adding new todo items
+      // it is a preventive measure
       calendar.classList.remove('hidden');
       inputSection.classList.add('hidden');
 
+      // getting the todo value i.e. the text that was entered
       let todo = todoInput.value;
+      // storing the todo value as the todo number inside the local storage
       disk.store('todo'+this.todoNumber,'<div class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>')
       
+      // adding the todo as html
       clTodo.insertAdjacentHTML(
         'beforeend', 
         '<div class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>'
       );
 
+      // attaching event listener to the todo checkbox to know that is has been clicked.
       document.getElementById('02-'+this.todoNumber).addEventListener('click', this.checkedHandler);
 
+      // incrementing the todo number and storing it in the local storage
+      // for future reference
       this.todoNumber++;
       disk.store('todo-number', this.todoNumber);
     });
@@ -5054,24 +5073,29 @@ class Todo {
   // function to show all todo elements added by users on refresh
   showExisting(clTodo) {
 
+    // loop variable
     var count = this.todoNumber-1;
     while (true) {
 
-
+      // getting the todo value stored in the local storage
       const val = disk.get('todo'+count);
-      console.log(val);
 
+      // if the value is null i.e no todo items have been added by the user
+      // then the loop must terminate because it is an infinite loop
       if (val === null) {
 
         console.log('End');
         return ;
       }
 
+      // adding the todo item as html
       clTodo.insertAdjacentHTML(
         'afterbegin', val+'');
 
+      // attaching event listener to its checkbox
       document.getElementById('02-'+count).addEventListener('click', this.checkedHandler);
 
+      // decrementing the count: loop variable
       count--;
     }
   }
