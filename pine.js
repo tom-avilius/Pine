@@ -4980,6 +4980,24 @@ class Todo {
         disk.store('todo-number', 12);
       }
     }
+
+    try {
+
+      document.getElementById('02-11').addEventListener('click', () => {
+
+        document.getElementById('11').style.opacity = 0;
+        disk.store('02-11', 'false');
+      });
+
+      document.getElementById('12').addEventListener('click', () => {
+
+        document.getElementById('12').style.opacity = 0;
+        disk.store('02-12', 'false');
+      });
+    } catch (err) {
+
+      // do nothing, really..
+    }
   }
 
   enableAddButton = (addButton = HTMLButtonElement, calendar, todoInput, todoInputButton, inputSection, clTodo) => {
@@ -4997,7 +5015,9 @@ class Todo {
       clTodo.insertAdjacentHTML(
         'beforeend', 
         '<div class="checkbox-wrapper-11 todo-item"> <input id="02-'+this.todoNumber+'" type="checkbox" name="r" value="2"><label for="02-'+this.todoNumber+'">'+todo+'</label></div>'
-      )
+      );
+
+      document.getElementById('02-'+this.todoNumber).addEventListener('click', this.checkedHandler);
 
       this.todoNumber++;
       disk.store('todo-number', this.todoNumber);
@@ -5012,11 +5032,12 @@ class Todo {
   // function to show all todo elements added by users on refresh
   showExisting(clTodo) {
 
-    var count = this.todoNumber-1
+    var count = this.todoNumber-1;
     while (true) {
 
+
       const val = disk.get('todo'+count);
-      count--;
+      console.log(val);
 
       if (val === null) {
 
@@ -5025,8 +5046,22 @@ class Todo {
       }
 
       clTodo.insertAdjacentHTML(
-        'afterbegin', val+'')
+        'afterbegin', val+'');
+
+      document.getElementById('02-'+count).addEventListener('click', this.checkedHandler);
+
+      count--;
     }
+  }
+
+  removeTodo() {
+
+
+  }
+
+  checkedHandler = () => {
+
+    console.log('hola');
   }
 }
 

@@ -208,6 +208,8 @@ nav ul li a:hover {
     margin-bottom: 20px;
     padding: 8px 20px;
     border-radius: 1px;
+
+    transition: all 0.6s ease-in;
 }
 
 #todo-submit {
