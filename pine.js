@@ -5005,10 +5005,10 @@ class Todo {
         this.todoNumber = 12;
         disk.store('todo-number', 12);
       }
-    } finally {
+    }// finally {
 
-      this.todoNumber = 1;
-    }
+    //   this.todoNumber = 1;
+    // }
 
     // adding event listeners to the default todo items 
     // to know when they are checked by the users and hiding them afterwards
@@ -5109,6 +5109,8 @@ class Todo {
       // adding the todo item as html
       clTodo.insertAdjacentHTML(
         'afterbegin', val+'');
+
+      console.log(val);
 
       // attaching event listener to its checkbox
       document.getElementById('02-'+count).addEventListener('click', (event) => {
