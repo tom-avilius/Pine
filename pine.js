@@ -4474,6 +4474,7 @@ const notesBtn = document.getElementById('notes-btn');
 
 // all notes elements
 const notesSection = document.getElementById('notes');
+const noteBtn = document.getElementById('add-note');
 
 // all settings elements
 const settingsSection = document.getElementById('settings')
@@ -5146,6 +5147,33 @@ class Todo {
   }
 }
 
+// class to manage notes
+class Notes {
+
+  constructor (notesBtn) {
+
+    this.notesBtn = notesBtn;
+    this.notesInput = document.getElementById('note-input-area');
+    this.submitNote = document.getElementById('submit-note');
+  }
+
+  enableNotes() {
+
+    this.notesBtn.addEventListener('click', () => {
+
+      this.notesBtn.classList.add('hidden');
+      this.notesInput.classList.remove('hidden');
+      this.submitNote.classList.remove('hidden');
+      this.submitNote.addEventListener('click', () => {
+
+        this.notesBtn.classList.remove('hidden');
+        this.notesInput.classList.add('hidden');
+        this.submitNote.classList.add('hidden');
+      });
+    });
+  }
+}
+
 // ----------------------------------------------
 
 
@@ -5165,6 +5193,8 @@ const initiate = new Initiate();
 const calendar = new Calendar(calendarDay, calendarMonth, calendarDates, calendarBtn);
 // creating todo object
 const todo = new Todo();
+// creating notes object
+const notes = new Notes(noteBtn);
 
 // making elements draggable below
 // today section
@@ -5214,8 +5244,11 @@ calendar.enableCalendar(5, 2023);
 // enabling todo add button functionality
 todo.enableAddButton(todoAddButton, calendarSection, todoInput, todoInputButton, todoInputSection, todoSection);
 
+// enabling notes functionality
+notes.enableNotes();
+
 // enabling primary navbar functions
 pineNavbar.enableHome();
 pineNavbar.enableCalendar();
 pineNavbar.enableNotes();
-pineNavbar.enableSettings();
+pineNavbar.enableSettings();  

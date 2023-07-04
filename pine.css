@@ -225,6 +225,25 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+#submit-note {
+
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
+    outline: none;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    font-family: 'Open Sans';
+    padding: 5px 10px;
+    transition: all 0.2s ease-in;
+    border-radius: 5px;
+}
+
+textarea {
+
+    margin-top: 15px;
+    user-select: auto;
+}
+
 #today {
 
     font-family: 'Open Sans', sans-serif;
