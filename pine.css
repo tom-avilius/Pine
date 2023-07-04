@@ -16,6 +16,13 @@
     cursor: inherit;
 }
 
+.active-day {
+
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    width: 20px;
+}
+
 #add-todo {
 
     margin-top: 20px;

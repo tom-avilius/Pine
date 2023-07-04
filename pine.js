@@ -4871,11 +4871,12 @@ class Initiate {
 // class to manage calendar functions
 class Calendar {
 
-  constructor (clDay = HTMLSpanElement, clMonth = HTMLSpanElement, clDates = []) {
+  constructor (clDay = HTMLSpanElement, clMonth = HTMLSpanElement, clDates = [], calendarButton) {
 
     this.clDay = clDay;
     this.clDates = clDates;
     this.clMonth = clMonth;
+    this.calendarButton = calendarButton;
   }
 
   // function to generate month dates
@@ -4934,7 +4935,15 @@ class Calendar {
     dates.forEach( (value) => {
 
       this.clDates[count].innerText = value.getDate()+'';
-      count++
+
+      const date = this.clDates[count].innerText;
+
+      if(date+'' === today.getDate()+'') {
+
+        this.clDates[count].classList.add('active-day');
+      }
+
+      count++;
     });
   }
 
@@ -4982,6 +4991,11 @@ class Calendar {
     ];
 
     return monthList[month];
+  }
+
+  enableCalendar (month, year) {
+
+    this.calendarButton.addEventListener('click', () => {this.formatMonth(month, year)});
   }
 }
 
@@ -5148,7 +5162,7 @@ const weather = new Weather(sections);
 // initiate object
 const initiate = new Initiate();
 // creating calendar object
-const calendar = new Calendar(calendarDay, calendarMonth, calendarDates);
+const calendar = new Calendar(calendarDay, calendarMonth, calendarDates, calendarBtn);
 // creating todo object
 const todo = new Todo();
 
@@ -5195,7 +5209,7 @@ formatQuote();
 statistics.enableStatistics();
 
 // generating month dates
-calendar.formatMonth(5, 2023);
+calendar.enableCalendar(5, 2023);
 
 // enabling todo add button functionality
 todo.enableAddButton(todoAddButton, calendarSection, todoInput, todoInputButton, todoInputSection, todoSection);
