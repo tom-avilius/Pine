@@ -78,11 +78,14 @@
 #cl-day {
 
     font-size: 2rem;
+    font-family: 'Open Sans';
+    font-weight: 300;
 }
 
 #cl-month {
 
     font-size: 2rem;
+    font-family: 'Open Sans';
 }
 
 #cl-todo {
@@ -126,11 +129,13 @@
 #cl-week-info th {
 
     padding: 5px;
+    font-family: 'Open Sans';
 }
 
 .cl-month-dates {
 
     font-size: 1.2rem;
+    font-family: 'Open Sans';
 }
 
 #cl-quote {
