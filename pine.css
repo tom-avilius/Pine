@@ -225,6 +225,15 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
+#note-input-area {
+
+    outline: none;
+    font-family: 'Open Sans';
+    font-size: 1rem;
+   
+    transition: all 0.2s ease-in;
+}
+
 #submit-note {
 
     background: transparent;
@@ -236,6 +245,12 @@ nav ul li a:hover {
     padding: 5px 10px;
     transition: all 0.2s ease-in;
     border-radius: 5px;
+}
+
+#submit-note:hover {
+
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 textarea {
