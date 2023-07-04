@@ -5155,21 +5155,58 @@ class Notes {
     this.notesBtn = notesBtn;
     this.notesInput = document.getElementById('note-input-area');
     this.submitNote = document.getElementById('submit-note');
+
+    this.notesCount = 0;
+
+    // setting the value of notes count
+    try {
+
+      this.notesCount = disk.get('notesCount');
+    } catch (err) {
+
+      // do nothing... lol
+    } finally {
+
+      this.notesCount = 0;
+    }
   }
 
+  // function to show existing notes
+  showNotes () {
+
+    
+  }
+
+  // function to enable the behaviour of notes
   enableNotes() {
 
+    // adding click event listener to the add notes button
     this.notesBtn.addEventListener('click', () => {
 
       this.notesBtn.classList.add('hidden');
       this.notesInput.classList.remove('hidden');
       this.submitNote.classList.remove('hidden');
-      this.submitNote.addEventListener('click', () => {
+    });
 
-        this.notesBtn.classList.remove('hidden');
-        this.notesInput.classList.add('hidden');
-        this.submitNote.classList.add('hidden');
-      });
+    this.submitHandler();
+  }
+
+   // function to handle submission of a note
+   submitHandler () {
+
+    // adding click event listener to the submit note button
+    this.submitNote.addEventListener('click', () => {
+
+      this.notesBtn.classList.remove('hidden');
+      this.notesInput.classList.add('hidden');
+      this.submitNote.classList.add('hidden');    
+
+      // storing the notes input value
+      disk.store('note'+this.notesCount, this.notesInput.value);
+
+      // storing the new count of notes 
+      this.notesCount++;
+      disk.store('notesCount', this.notesCount);
     });
   }
 }
