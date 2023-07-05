@@ -5174,6 +5174,32 @@ class Notes {
 
     //   this.notesCount = 0;
     // }
+
+    document.oncontextmenu = this.rightClick;
+
+    document.addEventListener('click', (event) => {
+
+      event.preventDefault();
+
+      if (event.target.classList[0] != "note-item") {
+
+        const noteMenu = document.getElementById('note-menu');
+        noteMenu.style.display = "None";
+      }
+    })
+  }
+
+  rightClick (e)  {
+    e.preventDefault();
+    if(e.target.classList[0] == "note-item") {
+      
+      const noteMenu = document.getElementById('note-menu');
+      noteMenu.style.left = ((e.target.style.left))+'';
+      noteMenu.style.top = ((e.target.style.top))+'';
+      noteMenu.style.display = "block";
+    } 
+    console.log('aler')
+
   }
 
   // function to show existing notes
@@ -5199,8 +5225,6 @@ class Notes {
 
       // making the element draggable
       var tag = document.getElementById(count+'');
-      console.log(count)
-      console.log(tag);
       element.draggable(tag, count+'note');
     }
   }

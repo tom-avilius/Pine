@@ -247,10 +247,19 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-/* .note-item:hover {
+#note-menu {
 
-    cursor: pointer;
-} */
+    position: absolute;
+    background-color: white;
+    display: none;
+}
+
+#note-menu-item {
+
+    font-family: 'Open Sans';
+    list-style-type: none;
+    padding: 5px 10px;
+}
 
 #submit-note {
 
