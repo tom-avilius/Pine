@@ -5126,8 +5126,6 @@ class Todo {
       clTodo.insertAdjacentHTML(
         'afterbegin', val+'');
 
-      console.log(val);
-
       // attaching event listener to its checkbox
       document.getElementById('02-'+count).addEventListener('click', (event) => {
 
@@ -5251,8 +5249,6 @@ class Notes {
     
     // adding event listener to the document to close the menu
     document.addEventListener('click', (event) => {
-
-      event.preventDefault();
 
       if (event.target.id == "note-menu-item") {
 
