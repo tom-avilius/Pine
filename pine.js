@@ -5150,14 +5150,15 @@ class Todo {
 // class to manage notes
 class Notes {
 
-  constructor (notesBtn) {
+  constructor (notesBtn, notesSection) {
 
     this.notesBtn = notesBtn;
     this.notesInput = document.getElementById('note-input-area');
     this.submitNote = document.getElementById('submit-note');
+    this.notesSection = notesSection;
 
     this.notesCount = 0;
-
+    console.log(disk.get('notesCount'))
     // setting the value of notes count
     try {
 
@@ -5165,16 +5166,41 @@ class Notes {
     } catch (err) {
 
       // do nothing... lol
-    } finally {
+      this.notesCount = disk.get('notesCount')
+    } //finally {
 
-      this.notesCount = 0;
-    }
+    //   this.notesCount = 0;
+    // }
   }
 
   // function to show existing notes
   showNotes () {
 
-    
+    var count = disk.get('notesCount'); // loop variable
+
+    // loop to show all existing notes
+    while (true) {
+
+      console.log('sss')
+
+      count--; // decrementing count to reach the real value that is being used
+
+      console.log(count)
+      var value = disk.get('note'+count); // note
+
+      // condition to exit the function
+      if (value == null) {
+
+        return;
+      }
+
+      console.log('ss')
+
+      // adding the note as a child of the notes section
+      value = '<span class="note-item">'+value+'</span>';
+      console.log(value)
+      this.notesSection.insertAdjacentHTML('beforeend', value);
+    }
   }
 
   // function to enable the behaviour of notes
@@ -5189,6 +5215,7 @@ class Notes {
     });
 
     this.submitHandler();
+    this.showNotes();
   }
 
    // function to handle submission of a note
@@ -5231,7 +5258,7 @@ const calendar = new Calendar(calendarDay, calendarMonth, calendarDates, calenda
 // creating todo object
 const todo = new Todo();
 // creating notes object
-const notes = new Notes(noteBtn);
+const notes = new Notes(noteBtn, notesSection);
 
 // making elements draggable below
 // today section
