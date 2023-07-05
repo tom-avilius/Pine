@@ -261,6 +261,12 @@ nav ul li a:hover {
     padding: 5px 10px;
 }
 
+#settings h1, #setting p {
+
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+
 #submit-note {
 
     background: transparent;
