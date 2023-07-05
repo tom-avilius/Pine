@@ -5170,17 +5170,22 @@ class Notes {
 
       // do nothing... lol
       this.notesCount = disk.get('notesCount')
-    } //finally {
+    }
+  }
 
-    //   this.notesCount = 0;
-    // }
+  docClick ()  {
 
-    document.oncontextmenu = this.rightClick;
-
+    // adding event listener to the document to close the menu
     document.addEventListener('click', (event) => {
 
       event.preventDefault();
 
+      if (event.target.id == "note-menu-item") {
+
+        console.log(this.rightClickElement);
+      }
+
+      // checking if the event was triggered in a note item or not
       if (event.target.classList[0] != "note-item") {
 
         const noteMenu = document.getElementById('note-menu');
@@ -5198,8 +5203,6 @@ class Notes {
       noteMenu.style.top = ((e.target.style.top))+'';
       noteMenu.style.display = "block";
     } 
-    console.log('aler')
-
   }
 
   // function to show existing notes
@@ -5208,7 +5211,7 @@ class Notes {
     var count = disk.get('notesCount'); // loop variable
 
     // loop to show all existing notes
-    while (true) {
+    while (count>0) {
 
       count--; // decrementing count to reach the real value that is being used
       var value = disk.get('note'+count); // note
@@ -5216,21 +5219,23 @@ class Notes {
       // condition to exit the function
       if (value == null) {
 
-        return;
+      } else {
+
+        // adding the note as a child of the notes section
+        value = '<div id="'+count +'"class="note-item">'+value+'</div>';
+        this.notesSection.insertAdjacentHTML('beforeend', value);
+
+        // making the element draggable
+        var tag = document.getElementById(count+'');
+        element.draggable(tag, count+'note');
       }
-
-      // adding the note as a child of the notes section
-      value = '<div id="'+count +'"class="note-item">'+value+'</div>';
-      this.notesSection.insertAdjacentHTML('beforeend', value);
-
-      // making the element draggable
-      var tag = document.getElementById(count+'');
-      element.draggable(tag, count+'note');
     }
   }
 
   // function to enable the behaviour of notes
   enableNotes() {
+
+    var lol = 0; 
 
     // adding click event listener to the add notes button
     this.notesBtn.addEventListener('click', () => {
@@ -5242,6 +5247,40 @@ class Notes {
 
     this.submitHandler();
     this.showNotes();
+    
+    
+    // adding event listener to the document to close the menu
+    document.addEventListener('click', (event) => {
+
+      event.preventDefault();
+
+      if (event.target.id == "note-menu-item") {
+
+        document.getElementById(lol+'').classList.add('hidden');
+        disk.free('note'+lol);
+      }
+
+      // checking if the event was triggered in a note item or not
+      if (event.target.classList[0] != "note-item") {
+
+        const noteMenu = document.getElementById('note-menu');
+        noteMenu.style.display = "None";
+      }
+    })
+
+    // setting the function to be called when context menu is invoked
+    document.oncontextmenu = (e) => {
+
+      e.preventDefault();
+    if(e.target.classList[0] == "note-item") {
+      
+      lol = e.target.id;
+      const noteMenu = document.getElementById('note-menu');
+      noteMenu.style.left = ((e.target.style.left))+'';
+      noteMenu.style.top = ((e.target.style.top))+'';
+      noteMenu.style.display = "block";
+    } 
+    };
   }
 
    // function to handle submission of a note
