@@ -4475,6 +4475,7 @@ const notesBtn = document.getElementById('notes-btn');
 // all notes elements
 const notesSection = document.getElementById('notes');
 const noteBtn = document.getElementById('add-note');
+const noteBtnContainer = document.getElementById('note-btn');
 
 // all settings elements
 const settingsSection = document.getElementById('settings')
@@ -5157,6 +5158,8 @@ class Notes {
     this.submitNote = document.getElementById('submit-note');
     this.notesSection = notesSection;
 
+    element.draggable(document.getElementById('note-input'), 'note-input-section');
+
     this.notesCount = 0;
     console.log(disk.get('notesCount'))
     // setting the value of notes count
@@ -5191,9 +5194,14 @@ class Notes {
       }
 
       // adding the note as a child of the notes section
-      value = '<span class="note-item">'+value+'</span>';
-      console.log(value)
+      value = '<div id="'+count +'"class="note-item">'+value+'</div>';
       this.notesSection.insertAdjacentHTML('beforeend', value);
+
+      // making the element draggable
+      var tag = document.getElementById(count+'');
+      console.log(count)
+      console.log(tag);
+      element.draggable(tag, count+'note');
     }
   }
 
@@ -5226,8 +5234,12 @@ class Notes {
       disk.store('note'+this.notesCount, this.notesInput.value);
 
       // adding the note as html
-      var value = '<span class="note-item">'+this.notesInput.value+'</span>'
+      var value = '<div id="'+this.notesCount +'"class="note-item">'+this.notesInput.value+'</div>'
       this.notesSection.insertAdjacentHTML('beforeend', value);
+
+      // making the note draggable
+      var tag = document.getElementById(this.notesCount+'');
+      element.draggable(tag, this.notesCount+'note');
 
       // storing the new count of notes 
       this.notesCount++;
@@ -5275,7 +5287,7 @@ element.draggable(explorerLauncher, 'explorer');
 // navbar section
 element.draggable(navbarSection, 'navbar');
 // notes section
-element.draggable(notesSection, 'notes');
+element.draggable(noteBtnContainer, 'noteBtnContainer');
 // settings sections
 element.draggable(settingsSection, 'settings');
 

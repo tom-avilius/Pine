@@ -238,14 +238,19 @@ nav ul li a:hover {
 
     background: transparent;
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 10px 15px;
-    margin: 20px;
+    padding: 8px 20px;
+    width: fit-content;
+
+    font-family: 'Open Sans';
+    font-size: 1.1rem;
+
+    border-radius: 5px;
 }
 
-.note-item:hover {
+/* .note-item:hover {
 
     cursor: pointer;
-}
+} */
 
 #submit-note {
 
