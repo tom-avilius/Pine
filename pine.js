@@ -4462,8 +4462,8 @@ const weatherIcon = document.getElementById('weather-icon');
 const weatherInfo = document.getElementById('weather-info');
 
 // all launcher elements 
-const launcherSection = document.getElementById('launchers')
-const explorerLauncher = document.getElementById('explorer');
+// const launcherSection = document.getElementById('launchers')
+// const explorerLauncher = document.getElementById('explorer');
 
 // all navbar elements
 const navbarSection = document.getElementById('navbar');
@@ -5338,7 +5338,7 @@ element.draggable(cpuStat, 'cpu-stat');
 // weather section
 element.draggable(weatherSection, 'weather');
 // launchers
-element.draggable(explorerLauncher, 'explorer');
+// element.draggable(explorerLauncher, 'explorer');
 // navbar section
 element.draggable(navbarSection, 'navbar');
 // notes section
