@@ -5181,11 +5181,7 @@ class Notes {
     // loop to show all existing notes
     while (true) {
 
-      console.log('sss')
-
       count--; // decrementing count to reach the real value that is being used
-
-      console.log(count)
       var value = disk.get('note'+count); // note
 
       // condition to exit the function
@@ -5193,8 +5189,6 @@ class Notes {
 
         return;
       }
-
-      console.log('ss')
 
       // adding the note as a child of the notes section
       value = '<span class="note-item">'+value+'</span>';
@@ -5230,6 +5224,9 @@ class Notes {
 
       // storing the notes input value
       disk.store('note'+this.notesCount, this.notesInput.value);
+
+      var value = '<span class="note-item">'+this.notesInput.value+'</span>'
+      this.notesSection.insertAdjacentHTML('beforeend', value);
 
       // storing the new count of notes 
       this.notesCount++;
