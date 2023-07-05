@@ -5225,6 +5225,7 @@ class Notes {
       // storing the notes input value
       disk.store('note'+this.notesCount, this.notesInput.value);
 
+      // adding the note as html
       var value = '<span class="note-item">'+this.notesInput.value+'</span>'
       this.notesSection.insertAdjacentHTML('beforeend', value);
 

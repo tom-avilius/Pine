@@ -234,6 +234,19 @@ nav ul li a:hover {
     transition: all 0.2s ease-in;
 }
 
+.note-item {
+
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    margin: 20px;
+}
+
+.note-item:hover {
+
+    cursor: pointer;
+}
+
 #submit-note {
 
     background: transparent;
