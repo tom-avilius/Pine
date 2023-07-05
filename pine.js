@@ -5054,8 +5054,6 @@ class Todo {
   // this function also calls the showExisting function to show the existing todo items.
   enableAddButton = (addButton = HTMLButtonElement, calendar, todoInput, todoInputButton, inputSection, clTodo) => {
 
-    console.log(this.todoNumber)
-
     // calling this function to show the existing todo items
     this.showExisting(clTodo);
 
@@ -5118,7 +5116,6 @@ class Todo {
       // then the loop must terminate because it is an infinite loop
       if (val === null) {
 
-        console.log('End');
         return ;
       }
 
@@ -5159,7 +5156,6 @@ class Notes {
     element.draggable(document.getElementById('note-input'), 'note-input-section');
 
     this.notesCount = 0;
-    console.log(disk.get('notesCount'))
     // setting the value of notes count
     try {
 
