@@ -6,7 +6,29 @@
     margin: 0;
 }
 
-.heading, .intro, .img-demo {
+.credits-container {
+
+    height: 10vh;
+    background-color: #e5e3e4;
+}
+
+.credits-text {
+
+    padding-top: 15px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+
+    transition: all 0.3s ease-in;
+}
+
+.credits-text:hover {
+
+    opacity: 60%;
+    cursor: pointer;
+}
+
+.heading, .intro, .img-demo, .credits {
 
     text-align: center;
 }
@@ -82,4 +104,5 @@
 .pine-img {
 
     width: 100%;
+    display: block;
 }
