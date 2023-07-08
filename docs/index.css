@@ -53,16 +53,16 @@ a {
 .content {
 
     background-color: #e5e3e4;
-    height: 60vh;
+    min-height: 60vh;
 }
 
-.content ul {
+.content ul, .content ol {
 
     padding: 5vh 18vw;
     list-style-type: none;
 }
 
-.content ul li {
+.content ul li, .content ol li {
 
     padding-bottom: 8px;
 }

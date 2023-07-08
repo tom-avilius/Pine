@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./index.css">
+
     <title>Documentation</title>
 </head>
 <body>
@@ -15,5 +18,24 @@
 
         <h1 class="contact-heading"> Documentation </h1>
     </header>
+
+    <section class="content">
+        <ol class="intro-text ">
+            <li>Install the <a class="link" href="https://splash.tomavilius.in/" target="_blank">splash application.</a></li>
+            <li>Download the <a class="link" href="">Pine</a> theme.</li>
+            <li>Go to the Downloads folder of your PC and find pine.zip file.</li>
+            <li>Extract the file in the Documents folder of your PC under the splash/themes folder.</li>
+            <li>If splash/themes folder under the Documents folder does not exist then create one and extract over there.</li>
+            <li>Now go to the extracted folder(under documents/splash/themes/pine) and find 'pine.html' file.</li>
+            <li>Copy the complete path of 'pine.html' file. 
+            </li>
+            <li>Now go to the splash folder under the Documents folder of your pc.</li>
+            <li>Find config.json file and open it.</li>
+            <li>Now replace the text after the colon of htmlPath with the text you copied. The path must only contain forward slashes, if it contains back slashes
+                then replace them with forward slashes. Do not remove the inverted commas. <br> Sample: {"htmlFile": "text/that/you/copied", "openDevTools": false}</li>
+            <li>Now refresh the splash window by going to the homescreen. If splash is not running, launch it through the start menu.</li>
+            <li>If you encounter any issue during the process, feel free to raise an <a class="link" href="https://github.com/tom-avilius/Pine/issues" target="_blank">issue</a> on github.</li>
+        </ol>
+    </section>
 </body>
 </html>
