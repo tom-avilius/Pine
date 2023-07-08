@@ -22,13 +22,49 @@
     transition: all 0.3s ease-in;
 }
 
-.credits-text:hover {
+/* .credits-text:hover {
 
     opacity: 60%;
     cursor: pointer;
+} */
+
+.download-div {
+
+    height: 60vh;
+    background-color: #bbc6c8;
 }
 
-.heading, .intro, .img-demo, .credits {
+.download-info {
+
+    padding-top: 25px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-family: 300;
+    font-size: 16px;
+}
+
+.git-link, .bug-link {
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+
+    transition: all 0.3s ease-in;
+}
+
+.git-link:hover, .bug-link:hover {
+
+    border-bottom: 1px solid transparent;    
+}
+
+.git-link:visited, .bug-link:visited {
+
+    color: inherit;
+}
+
+.heading, .intro, .img-demo, .credits, .download {
 
     text-align: center;
 }
@@ -73,6 +109,12 @@
     padding-bottom: 20px;
 }
 
+.pad-top-10 {
+
+    display: block;
+    margin-top: 10vh;
+}
+
 .pine-download {
 
     font-family: 'Prompt', Arial, Helvetica, sans-serif;
@@ -90,6 +132,31 @@
 .pine-download:hover {
 
     border-bottom: 1px solid transparent;
+}
+
+.pine-download-button {
+
+    background: transparent;
+    margin-top: 20vh;
+    padding: 12px 45px;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 2px;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.pine-download-button a {
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.pine-download-button a:visited {
+
+    color: inherit;
 }
 
 .pine-heading {
