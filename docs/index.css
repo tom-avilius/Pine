@@ -16,6 +16,11 @@ a {
     color: inherit;
 }
 
+.c-text {
+
+    padding-top: 10vh;
+}
+
 .contact-heading {
 
     font-family: 'Prompt', Arial, Helvetica, sans-serif;
@@ -23,6 +28,18 @@ a {
     font-weight: 100;
 
     padding-top: 25vh;
+}
+
+.content {
+
+    background-color: #e5e3e4;
+    height: 60vh;
+}
+
+.content ul {
+
+    padding: 5vh 18vw;
+    list-style-type: none;
 }
 
 .credits-container {
@@ -133,6 +150,24 @@ h2 {
 
     padding-left: 16vw;
     padding-right: 16vw;
+}
+
+.link {
+
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    
+    transition: all 0.4s ease-in;
+}
+
+.link:hover {
+
+    border-bottom: 1px solid transparent;
+}
+
+.link:visited {
+
+    color: inherit;
 }
 
 .pad-bt-20 {
