@@ -26,6 +26,11 @@ a {
     opacity: 60%;
 }
 
+.back-icon:hover {
+
+    opacity: 40%;
+}
+
 .back-icon path {
 
     font-weight: 100;
