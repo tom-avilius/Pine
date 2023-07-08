@@ -16,6 +16,15 @@ a {
     color: inherit;
 }
 
+.contact-heading {
+
+    font-family: 'Prompt', Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 100;
+
+    padding-top: 25vh;
+}
+
 .credits-container {
 
     height: 10vh;
@@ -77,6 +86,13 @@ a {
 h2 {
 
     text-align: center;
+}
+
+.header-c {
+
+    text-align: center;
+    background-color: #5ba199;
+    height: 40vh;
 }
 
 .heading, .intro, .img-demo, .credits, .download, .top-link-container, .bottom-link-container {
