@@ -6,6 +6,16 @@
     margin: 0;
 }
 
+a:visited {
+
+    color: inherit;
+}
+
+a {
+
+    color: inherit;
+}
+
 .credits-container {
 
     height: 10vh;
@@ -64,7 +74,12 @@
     color: inherit;
 }
 
-.heading, .intro, .img-demo, .credits, .download, .footer {
+h2 {
+
+    text-align: center;
+}
+
+.heading, .intro, .img-demo, .credits, .download, .top-link-container, .bottom-link-container {
 
     text-align: center;
 }
@@ -173,8 +188,152 @@
     width: 100%;
     display: block;
 }
+/* 
+.top-link-container {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-link-container .right {
+
+    padding-right: 100px;
+}
+
+.top-link-container .left {
+
+    padding-left: 100px;
+}
+
+.bottom-link-container {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-link-container .right {
+
+    padding-right: 100px;
+}
+
+.bottom-link-container .left {
+
+    padding-left: 100px;
+}
+
+*/
+
+/* 
+
+    AI Generated code below.
+    I was hoping for something but what AI did
+    was the best of what I did, so it doesn't 
+    really matter.
+*/
+
+footer {
+
+    background-color: #469597;
+}
+
+footer a:hover {
+
+    opacity: 60%;
+}
+
+.copyright {
+
+    font-family: 'Open Sans';
+    font-size: 15px !important;
+    font-weight: 300;
+}
+
+.footer-container h2 {
+
+    font-family: 'Open Sans',Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 27px !important;
+    letter-spacing: 1px;
+    opacity: 75%;
+}
+
+.top-link-container a, .bottom-link-container a {
+
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    opacity: 75%;
+}
+
+.bottom-link-container a {
+
+    font-size: 16px !important;
+}
 
 .top-link-container div span, .bottom-link-container div span {
 
     display: block;
-}
+} 
+
+.footer-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Heading */
+  .footer-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  /* Horizontal line */
+  .footer-container hr {
+    border:0.5px solid rgba(0, 0, 0, 0.067);
+    /* height: 1px; */
+    margin: 20px 0;
+  }
+  
+  /* Top link container */
+  .top-link-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  /* Bottom link container */
+  .bottom-link-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  /* Link styling */
+  .footer-container a {
+    text-decoration: none;
+  }
+  
+  /* Copyright text */
+  .footer-container .copyright {
+    font-size: 12px;
+  }
+  
+  /* Social icons (add your styles or icons here) */
+  .footer-container .social {
+    font-size: 16px;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 600px) {
+    /* Adjust layout for smaller screens */
+    .top-link-container,
+    .bottom-link-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    /* Add spacing between links in smaller screens */
+    .top-link-container span,
+    .bottom-link-container span {
+      margin-bottom: 10px;
+    }
+  }
