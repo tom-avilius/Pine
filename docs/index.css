@@ -62,6 +62,11 @@ a {
     list-style-type: none;
 }
 
+.content ul li {
+
+    padding-bottom: 8px;
+}
+
 .credits-container {
 
     height: 10vh;
