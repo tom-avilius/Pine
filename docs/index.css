@@ -16,6 +16,21 @@ a {
     color: inherit;
 }
 
+.back-icon {
+
+    position: absolute;
+    top: 17vh;
+    left: 16vw;
+    height: 48px;
+    width: 48px;
+    opacity: 60%;
+}
+
+.back-icon path {
+
+    font-weight: 100;
+}
+
 .c-text {
 
     padding-top: 10vh;
